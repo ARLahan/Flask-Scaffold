@@ -9,8 +9,8 @@
     - pip install -r requirements.txt
   - Run scaffold.py as demonstrated bellow
 
-* This scaffold is inspired on the RealPython's [https://github.com/realpython/flask-scaffold],
-but has some improvements, such as:
+* This scaffold is not a clone but is inspired on the
+  RealPython's [https://github.com/realpython/flask-scaffold], but has some improvements, such as:
 
   * Fully multi-skeleton:
     - Just add a new skeleton to the skeletons directory,
@@ -64,12 +64,17 @@ $ ./run
 ### Creating the database and the admin user:
 
 ```sh
+$ export APP_CONFIG="project.config.DevelopmentConfig"
 $ python manage.py create_db
 $ python manage.py db init
 $ python manage.py db migrate
 $ python manage.py create_admin
 $ python manage.py create_data
 ```
+
+  * You can login into the application using:
+    - email: admin@example.com
+    - password: admin
 
 ### Runnig the application
   * Just type :

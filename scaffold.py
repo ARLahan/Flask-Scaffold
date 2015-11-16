@@ -235,6 +235,8 @@ def add_git(fullpath):
 if __name__ == '__main__':
     args, skeleton, skeleton_dir, fullpath = get_arguments(sys.argv)
 
+    print(args, skeleton, skeleton_dir, fullpath)
+
     print(generate_brief(args))
 
     proceed = input('\nProceed (yes/no)? ')
@@ -247,9 +249,10 @@ if __name__ == '__main__':
                       args.appname.upper(), 'application...')
 
                 # create the structure of the new project
-                template_ctx = make_structure(skeleton, skeleton_dir, fullpath)
+                template_ctx = make_structure(
+                    args, skeleton, skeleton_dir, fullpath)
 
-                # make config
+                # make config.py and manage.py
                 make_config(skeleton, fullpath, template_ctx)
 
                 # make tests
