@@ -111,7 +111,7 @@ $ python manage.py cov
 * Both the scaffold and the new project run under Python 2.7+ and 3.3+ (including 3.5)
 
 * It is generated a new project on the fly, with the following
- dependencies installed (if the -v parameter is used):
+ dependencies installed (if the -v argument is used):
   - alembic==0.8.3
   - blinker==1.4
   - coverage==4.0.2
