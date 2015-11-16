@@ -1,0 +1,81 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# Author: Al-Rama Lahan <lahangit@gmail.com>.
+"""
+Run project, choosing which configuration to apply.
+One can also install `watchdog` as reloader
+instead the werkzeug's default which is `stat`,
+because `stat` drains laptop's battery.
+"""
+
+import os
+import sys
+import argparse
+
+
+def get_arguments(argv):
+    """Get arguments from command line."""
+    parser = argparse.ArgumentParser(description='Run a Flask application')
+    parser.add_argument('-c', '--config',
+                        choices=['dev', 'test', 'pro'],
+                        default='dev',
+                        help='Which configuration to use:`dev`, `pro` `test`. \
+                        It defaults to `dev`')
+    parser.add_argument('-d', '--debug',
+                        action='store_false',
+                        help='Starts the debugger.')
+    parser.add_argument('-hh', '--host',
+                        default='localhost',
+                        help='Host to use for running the application. \
+                        Defaults to `localhost`.')
+    parser.add_argument('-p', '--port',
+                        default=5000, type=int,
+                        help='Port to use for running the application. \
+                        Defaults to port 5000.')
+    parser.add_argument('-r', '--reload',
+                        action='store_false',
+                        help='Reload automatically after changes in code.')
+    parser.add_argument('-rt', '--reloader',
+                        choices=['stat', 'watchdog'],
+                        default='stat',
+                        help='The default reloader to use. You may also choose \
+                        `watchdog` if you have it installed.')
+    args = parser.parse_args()
+    return args
+
+
+def main(args):
+    """Process received arguments."""
+
+    if args.config == "pro":
+        os.environ['APP_CONFIG'] = "project.config.ProductionConfig"
+        env = "Production configuration"
+    elif args.config == "test":
+        os.environ['APP_CONFIG'] = "project.config.TestingConfig"
+        env = "Testing configuration"
+    else:
+        os.environ['APP_CONFIG'] = "project.config.DevelopmentConfig"
+        env = "Development configuration"
+
+    if args.config == "pro" or args.config == "test":
+        args.debug = False
+        args.reload = False
+
+    return args, env
+
+
+if __name__ == "__main__":
+    """Application entry point."""
+    args = get_arguments(sys.argv)
+    args, env = main(args)
+
+    from werkzeug.serving import run_simple
+    from project import app
+
+    print(' * Serving {app} @ http://{host}:{port}/\n * Config: {env}'.format(
+        app=app, host=args.host, port=args.port, env=env))
+
+    run_simple(args.host, args.port, app,
+               use_reloader=args.reload,
+               use_debugger=args.debug,
+               reloader_type=args.reloader)
