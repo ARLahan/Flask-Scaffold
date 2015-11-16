@@ -16,34 +16,34 @@
     - Just add a new skeleton to the skeletons directory,
       update scaffold.py with the new skeleton and then run:
 
-   ```sh
-   $ python scaffold.py project_name -s skeleton_name [-p full-path/of/the/new/project]
-   ```
+      ```sh
+      $ python scaffold.py project_name -s skeleton_name [-p full-path/of/the/new/project]
+      ```
     - if the -s argument is omitted, the default is chosen.
 
   * Can install automatically a PYTHON virtual environ (virtualenv)
 
- ```sh
- $ python scaffold.py project_name -v [-p full-path/of/the/new/project]
- ```
+    ```sh
+    $ python scaffold.py project_name -v [-p full-path/of/the/new/project]
+    ```
 
   * Can create automatically a GIT repository
 
- ```sh
- $ python scaffold.py project_name -g [-p full-path/of/the/new/project]
- ```
+    ```sh
+    $ python scaffold.py project_name -g [-p full-path/of/the/new/project]
+    ```
 
   * Can install automatically BOWER single or multiple dependencies
 
- ```sh
- $ python scaffold.py project_name -b "jquery angular" [-p full-path/of/the/new/project]
- ```
+    ```sh
+    $ python scaffold.py project_name -b "jquery angular" [-p full-path/of/the/new/project]
+    ```
 
   * Can use all arguments in a unique command line
 
- ```sh
- $ python scaffold.py project_name -s skeleton_name -g -v -b "jquery angular" [-p full-path/of/the/new/project]
- ```
+    ```sh
+    $ python scaffold.py project_name -s skeleton_name -g -v -b "jquery angular" [-p full-path/of/the/new/project]
+    ```
 
   * The new project has two basic blueprints (main and user) which have:
    - Their own static folder
@@ -57,20 +57,20 @@
 
   * Change to the new project root directory and run:
 
-```sh
-$ ./run
-```
+    ```sh
+    $ ./run
+    ```
 
 ### Creating the database and the admin user:
 
-```sh
-$ export APP_CONFIG="project.config.DevelopmentConfig"
-$ python manage.py create_db
-$ python manage.py db init
-$ python manage.py db migrate
-$ python manage.py create_admin
-$ python manage.py create_data
-```
+  ```sh
+  $ export APP_CONFIG="project.config.DevelopmentConfig"
+  $ python manage.py create_db
+  $ python manage.py db init
+  $ python manage.py db migrate
+  $ python manage.py create_admin
+  $ python manage.py create_data
+  ```
 
   * You can login into the application using:
     - email: admin@example.com
@@ -79,9 +79,9 @@ $ python manage.py create_data
 ### Runnig the application
   * Just type :
 
-```sh
-$ ./run [-c dev|test|pro]
-```
+    ```sh
+    $ ./run [-c dev|test|pro]
+    ```
 
 The optional -c parameters to pass can be one of the following:
    - dev   for running with development configuration
@@ -96,15 +96,15 @@ The optional -c parameters to pass can be one of the following:
 
  * Without coverage:
 
-```sh
-$ python manage.py test
-```
+    ```sh
+    $ python manage.py test
+    ```
 
  * With coverage:
 
-```sh
-$ python manage.py cov
-```
+    ```sh
+    $ python manage.py cov
+    ```
 
 ## Note
 
