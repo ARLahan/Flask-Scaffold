@@ -2,7 +2,7 @@
 
 ## How to install and use Flask-Scaffold:
   - Clone this repository:
-    - git clone https://github.com/ARLahan/Flask-Scaffold.git
+    - git clone https://github.com/ARLahan/Flask-Scaffold.git your_dir_name
   - Create a python virtual environment (virtualenv)
   - Activate the virtualenv
   - Install the dependencies:
@@ -52,35 +52,6 @@ but has some improvements, such as:
    - Their own models
    - Their own forms
 
-  * Both the scaffold and the new project run under Python 2.7+ and 3.3+ (including 3.5)
-
-  * It is generated a new project on the fly, with the following
-   dependencies installed (if the -v parameter is used):
-    - alembic==0.8.3
-    - blinker==1.4
-    - coverage==4.0.2
-    - dominate==2.1.16
-    - Flask==0.10.1
-    - Flask-Bcrypt==0.6.2
-    - Flask-Bootstrap==3.3.5.7
-    - Flask-DebugToolbar==0.10.0
-    - Flask-Login==0.3.2
-    - Flask-Migrate==1.6.0
-    - Flask-Script==2.0.5
-    - Flask-SQLAlchemy==2.1
-    - Flask-Testing==0.4.2
-    - Flask-WTF==0.12
-    - itsdangerous==0.24
-    - Jinja2==2.8
-    - Mako==1.0.3
-    - MarkupSafe==0.23
-    - python-bcrypt==0.3.1
-    - python-editor==0.4
-    - SQLAlchemy==1.0.9
-    - visitor==0.1.2
-    - Werkzeug==0.11.2
-    - WTForms==2.0.2
-
 
 ## Quick Start the new created project
 
@@ -129,3 +100,34 @@ $ python manage.py test
 ```sh
 $ python manage.py cov
 ```
+
+## Note
+
+* Both the scaffold and the new project run under Python 2.7+ and 3.3+ (including 3.5)
+
+* It is generated a new project on the fly, with the following
+ dependencies installed (if the -v parameter is used):
+  - alembic==0.8.3
+  - blinker==1.4
+  - coverage==4.0.2
+  - dominate==2.1.16
+  - Flask==0.10.1
+  - Flask-Bcrypt==0.6.2
+  - Flask-Bootstrap==3.3.5.7
+  - Flask-DebugToolbar==0.10.0
+  - Flask-Login==0.3.2
+  - Flask-Migrate==1.6.0
+  - Flask-Script==2.0.5
+  - Flask-SQLAlchemy==2.1
+  - Flask-Testing==0.4.2
+  - Flask-WTF==0.12
+  - itsdangerous==0.24
+  - Jinja2==2.8
+  - Mako==1.0.3
+  - MarkupSafe==0.23
+  - python-bcrypt==0.3.1
+  - python-editor==0.4
+  - SQLAlchemy==1.0.9
+  - visitor==0.1.2
+  - Werkzeug==0.11.2
+  - WTForms==2.0.2
