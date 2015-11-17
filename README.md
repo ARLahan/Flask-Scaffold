@@ -123,23 +123,23 @@ The optional -c parameters to pass can be one of the following:
 * It is generated a new project on the fly, with the following
  dependencies installed (if the -v argument is used):
 
-   - alembic==0.8.3
-   - Babel==2.1.1
-   - coverage==4.0.2
-   - Flask==0.10.1
-   - Flask-Babel==0.9
-   - Flask-Bcrypt==0.6.2
-   - Flask-Bootstrap==3.3.5.7
-   - Flask-DebugToolbar==0.10.0
-   - Flask-Login==0.3.2
-   - Flask-Migrate==1.6.0
-   - Flask-Script==2.0.5
-   - Flask-SQLAlchemy==2.1
-   - Flask-Testing==0.4.2
-   - Flask-WTF==0.12
-   - Jinja2==2.8
-   - SQLAlchemy==1.0.9
-   - Werkzeug==0.11.2
-   - WTForms==2.0.2
+    - alembic==0.8.3
+    - Babel==2.1.1
+    - coverage==4.0.2
+    - Flask==0.10.1
+    - Flask-Babel==0.9
+    - Flask-Bcrypt==0.6.2
+    - Flask-Bootstrap==3.3.5.7
+    - Flask-DebugToolbar==0.10.0
+    - Flask-Login==0.3.2
+    - Flask-Migrate==1.6.0
+    - Flask-Script==2.0.5
+    - Flask-SQLAlchemy==2.1
+    - Flask-Testing==0.4.2
+    - Flask-WTF==0.12
+    - Jinja2==2.8
+    - SQLAlchemy==1.0.9
+    - Werkzeug==0.11.2
+    - WTForms==2.0.2
 
 NOLICENCE.
