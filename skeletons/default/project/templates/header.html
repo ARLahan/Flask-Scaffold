@@ -20,13 +20,17 @@
            <li><a href="{{ url_for('user.members') }}">Members</a></li>
           {% endif %}
         </ul>
-        <ul class="nav navbar-nav navbar-right">
+
+        <div class="nav navbar-nav navbar-right">
           {% if current_user.is_authenticated %}
-            <li><a href="{{ url_for('user.logout') }}">Logout</a></li>
+            <li><a href="{{ url_for('user.logout') }}" class="btn btn-default btn-md" role="button">
+                <span class="glyphicon glyphicon-log-out"></span> Logout</a>
+            </li>
           {% else %}
-            <li><a href="{{ url_for('user.login') }}"><span class="glyphicon glyphicon-user"></span>&nbsp;Register/Login</a></li>
+            <li><a href="{{ url_for('user.login') }}" class="btn btn-default btn-md" role="button">
+                <span class="glyphicon glyphicon-user"></span> Register/Sign in</a>
+            </li>
           {% endif %}
-        </ul>
       </div>
       <!-- /.navbar-collapse -->
     </div>

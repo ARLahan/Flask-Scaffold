@@ -23,9 +23,13 @@
       {{ wtf.form_field(form.email) }}
       {{ wtf.form_field(form.password) }}
 
-      <button class="btn btn-info" type="submit">Sign In!</button>
-      <br><br>
-      <p>Need to <a href="{{ url_for('user.register') }}">Register</a>?</p>
+      <button type="submit" class="btn btn-primary">
+        <span class="glyphicon glyphicon-log-out"></span> Sign in
+      </button>
+
+      <a href="{{ url_for('user.register') }}" class="btn btn-warning" role="button">
+        <span class="glyphicon glyphicon-user"></span> Need to register?</a>
+
     </div>
 
   </form>
