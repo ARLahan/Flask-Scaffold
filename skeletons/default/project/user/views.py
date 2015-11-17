@@ -12,6 +12,7 @@ from .forms import LoginForm, RegisterForm
 user_bp = Blueprint('user', __name__,
                     url_prefix='/user',
                     static_folder='static',
+                    static_url_path='/user/static',
                     template_folder='templates')
 
 
@@ -31,9 +32,9 @@ def register():
         login_user(user)
 
         flash('Thank you for registering.', 'success')
-        return redirect(url_for('user.members'))
+        return redirect(url_for('.members'))
 
-    return render_template('user/register.html', form=form)
+    return render_template('register.html', form=form)
 
 
 @user_bp.route('/login', methods=['GET', 'POST'])
@@ -46,11 +47,11 @@ def login():
                 user.password, request.form['password']):
             login_user(user)
             flash('You are logged in. Welcome!', 'success')
-            return redirect(url_for('user.members'))
+            return redirect(url_for('.members'))
         else:
             flash('Invalid email and/or password.', 'danger')
-            return render_template('user/login.html', form=form)
-    return render_template('user/login.html', title='Please Login', form=form)
+            return render_template('login.html', form=form)
+    return render_template('login.html', title='Please Login', form=form)
 
 
 @user_bp.route('/logout')
@@ -63,8 +64,8 @@ def logout():
 
 
 @user_bp.route('/')
-@user_bp.route('/profile')
+@user_bp.route('/dashboard')
 @login_required
 def members():
     """User area view."""
-    return render_template('user/members.html')
+    return render_template('members.html')

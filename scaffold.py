@@ -109,8 +109,10 @@ def make_structure(args, skeleton, skeleton_dir, fullpath):
     shutil.copytree(os.path.join(script_dir, skeleton_dir), fullpath)
     print('Creating the application configuration...')
     secret_key = codecs.encode(os.urandom(64), 'hex').decode('utf-8')
+    csrf_secret_key = codecs.encode(os.urandom(64), 'hex').decode('utf-8')
     template_ctx = {
         'secret_key': secret_key,
+        'csrf_secret_key': csrf_secret_key,
         'skeleton': skeleton['name'],
         'app_name': args.appname,
     }
@@ -234,8 +236,6 @@ def add_git(fullpath):
 
 if __name__ == '__main__':
     args, skeleton, skeleton_dir, fullpath = get_arguments(sys.argv)
-
-    print(args, skeleton, skeleton_dir, fullpath)
 
     print(generate_brief(args))
 

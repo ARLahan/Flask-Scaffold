@@ -1,12 +1,13 @@
 {% extends "_base.html" %}
 
-{% block page_title %} - Page Not Found{% endblock %}
+{% block page_title %} - Not Found{% endblock %}
 
 {% block content %}
 <div class="jumbotron">
   <div class="text-center">
-    <h1>404</h1>
-    <p>Sorry. The requested page doesn't exist. Go <a href="{{ url_for('main.home')}}">home</a>.</p>
+    <h1>Not Found</h1>
+    <h2>Sorry.... The requested page doesn't exist.</h2>
+    <h3>Go <a href="{{ url_for('main.home')}}">home</a>.</h3>
   </div>
 </div>
 {% endblock %}

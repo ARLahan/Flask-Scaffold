@@ -1,12 +1,13 @@
 {% extends "_base.html" %}
 
-{% block page_title %} - Server Error{% endblock %}
+{% block page_title %} - Internal Server Error{% endblock %}
 
 {% block content %}
 <div class="jumbotron">
   <div class="text-center">
-    <h1>500</h1>
-    <p>Sorry. Something went terribly wrong. Go <a href="{{ url_for('main.home')}}">home</a>.</p>
+    <h1>Internal Server Error</h1>
+    <h2>Sorry... Something went terribly wrong.</h2>
+    <h3>Go <a href="{{ url_for('main.home')}}">home</a>.</h3>
   </div>
 </div>
 {% endblock %}

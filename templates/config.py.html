@@ -2,6 +2,7 @@
 """Project configuration."""
 
 import os
+from . import app
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 datadir = os.path.abspath(os.path.join(os.path.dirname(basedir), 'data'))
@@ -12,38 +13,62 @@ class BaseConfig(object):
 
     APP_NAME = "{{ app_name }}"
     SECRET_KEY = "{{ secret_key }}"
+    ADMINS = frozenset(['admin@example.com'])  # change this...
+
     DEBUG = False
+    DEBUG_TB_ENABLED = False
+    PROPAGATE_EXCEPTIONS = False
+
     BCRYPT_LOG_ROUNDS = 13
     WTF_CSRF_ENABLED = True
-    DEBUG_TB_ENABLED = False
+    WTF_CSRF_SECRET_KEY = "{{ csrf_secret_key }}"
+
     BOOTSTRAP_QUERYSTRING_REVVING = True
     BOOTSTRAP_USE_MINIFIED = True
     BOOTSTRAP_SERVE_LOCAL = False
+
     SQLALCHEMY_TRACK_MODIFICATIONS = True
-    SEND_FILE_MAX_AGE_DEFAULT = 43200
+    SQLALCHEMY_ECHO = False
+    DATABASE_CONNECT_OPTIONS = {}
+
+    SEND_FILE_MAX_AGE_DEFAULT = 2592000  # seconds file is cached by browser
+    USE_X_SENDFILE = True
+
+    THREADS_PER_PAGE = 8
+
+    BABEL_DEFAULT_LOCALE = "en_GB"
+    BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
 class DevelopmentConfig(BaseConfig):
     """Development configuration."""
 
+    from flask.ext.debugtoolbar import DebugToolbarExtension
+    toolbar = DebugToolbarExtension(app)
     DEBUG = True
-    BCRYPT_LOG_ROUNDS = 1
-    WTF_CSRF_ENABLED = False
-    SQLALCHEMY_DATABASE_URI = "sqlite:///" + datadir + "/dev.sqlite"
     DEBUG_TB_ENABLED = True
     DEBUG_TB_INTERCEPT_REDIRECTS = False
-    SEND_FILE_MAX_AGE_DEFAULT = 3  # 3 secs
+
+    BCRYPT_LOG_ROUNDS = 1
+    WTF_CSRF_ENABLED = False
+
+    SQLALCHEMY_DATABASE_URI = "sqlite:///" + datadir + "/dev.sqlite"
+    SQLALCHEMY_ECHO = True
+
+    SEND_FILE_MAX_AGE_DEFAULT = 1  # 1 second file is cached by browser
+    USE_X_SENDFILE = False
 
 
 class TestingConfig(DevelopmentConfig):
     """Testing configuration."""
 
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = "sqlite:///:memory:"
     DEBUG_TB_ENABLED = False
+    SQLALCHEMY_DATABASE_URI = "sqlite:///:memory:"
 
 
 class ProductionConfig(BaseConfig):
     """Production configuration."""
 
-    SQLALCHEMY_DATABASE_URI = "postgresql:///localhost/example"
+    SQLALCHEMY_DATABASE_URI = "postgresql:///user@localhost:5432/example"
+    DATABASE_CONNECT_OPTIONS = {}
