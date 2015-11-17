@@ -32,7 +32,7 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 
 # Load jinja2 custom filters
-from .utils import Jinja2_filters
+from .utils import Jinja2Filters
 
 # Blueprints: import and register
 # main blueprint

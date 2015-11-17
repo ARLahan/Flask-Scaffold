@@ -5,10 +5,10 @@ from . import app
 from flask.ext.babel import format_datetime
 
 
-class Jinja2_filters(object):
+class Jinja2Filters(object):
 
     @app.template_filter()
-    def datetimefilter(value, format='full'):
+    def datetime_filter(value, format='full'):
         """Convert a datetime to a different format."""
         if format == 'full':
             format = "EEEE, dd MMMM yyyy '@' HH:MM:SS Z"
@@ -18,4 +18,4 @@ class Jinja2_filters(object):
             format = "dd.MM.yyyy HH:MM:SS Z"
         return format_datetime(value, format)
 
-    app.jinja_env.filters['datetime'] = datetimefilter
+    app.jinja_env.filters['datetime'] = datetime_filter
