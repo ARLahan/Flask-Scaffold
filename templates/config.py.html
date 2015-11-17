@@ -2,7 +2,6 @@
 """Project configuration."""
 
 import os
-from . import app
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 datadir = os.path.abspath(os.path.join(os.path.dirname(basedir), 'data'))
@@ -43,8 +42,6 @@ class BaseConfig(object):
 class DevelopmentConfig(BaseConfig):
     """Development configuration."""
 
-    from flask.ext.debugtoolbar import DebugToolbarExtension
-    toolbar = DebugToolbarExtension(app)
     DEBUG = True
     DEBUG_TB_ENABLED = True
     DEBUG_TB_INTERCEPT_REDIRECTS = False

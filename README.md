@@ -12,6 +12,8 @@
 * This scaffold is not a clone but is inspired on the
   RealPython's [https://github.com/realpython/flask-scaffold], but has some improvements, such as:
 
+  * Relative imports
+
   * Fully multi-skeleton:
     - Just add a new skeleton to the skeletons directory,
       update scaffold.py with the new skeleton and then run
