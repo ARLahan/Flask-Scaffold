@@ -141,3 +141,5 @@ The optional -c parameters to pass can be one of the following:
    - SQLAlchemy==1.0.9
    - Werkzeug==0.11.2
    - WTForms==2.0.2
+
+NOLICENCE.

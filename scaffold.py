@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Copyright (2015) Al-Rama Lahan <lahangit@gmail.com>.
+# Author: Al-Rama Lahan <lahangit@gmail.com>.
+# NOLICENCE.
 """
 Create a new project from a given scaffolding a project skeleton.
 
