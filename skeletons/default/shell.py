@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Author: Al-Rama Lahan <alramalahan@gmail.com>.
+# Author: Al-Rama Lahan <lahangit@gmail.com>.
+# NOLICENCE.
 """Open a Python shell with flask and the project imported."""
 
 import os

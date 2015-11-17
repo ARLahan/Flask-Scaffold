@@ -14,7 +14,19 @@
 
   * Fully multi-skeleton:
     - Just add a new skeleton to the skeletons directory,
-      update scaffold.py with the new skeleton and then run:
+      update scaffold.py with the new skeleton and then run
+
+  * Basic localization
+
+  * The new project has two basic blueprints/packages (main and user) which have:
+   - Their own static folder
+   - Their own templates folder
+   - Their own views
+   - Their own models
+   - Their own forms
+
+
+## Examples
 
       ```sh
       $ python scaffold.py project_name -s skeleton_name [-p full-path/of/the/new/project]
@@ -45,13 +57,6 @@
     $ python scaffold.py project_name -s skeleton_name -g -v -b "jquery angular" [-p full-path/of/the/new/project]
     ```
 
-  * The new project has two basic blueprints (main and user) which have:
-   - Their own static folder
-   - Their own templates folder
-   - Their own views
-   - Their own models
-   - Their own forms
-
 
 ## Quick Start the new created project
 
@@ -65,15 +70,15 @@
 
   ```sh
   $ export APP_CONFIG="project.config.DevelopmentConfig"
-  
+
   $ python manage.py create_db
-  
+
   $ python manage.py db init
-  
+
   $ python manage.py db migrate
-  
+
   $ python manage.py create_admin
-  
+
   $ python manage.py create_data
   ```
 
@@ -117,27 +122,22 @@ The optional -c parameters to pass can be one of the following:
 
 * It is generated a new project on the fly, with the following
  dependencies installed (if the -v argument is used):
-  - alembic==0.8.3
-  - blinker==1.4
-  - coverage==4.0.2
-  - dominate==2.1.16
-  - Flask==0.10.1
-  - Flask-Bcrypt==0.6.2
-  - Flask-Bootstrap==3.3.5.7
-  - Flask-DebugToolbar==0.10.0
-  - Flask-Login==0.3.2
-  - Flask-Migrate==1.6.0
-  - Flask-Script==2.0.5
-  - Flask-SQLAlchemy==2.1
-  - Flask-Testing==0.4.2
-  - Flask-WTF==0.12
-  - itsdangerous==0.24
-  - Jinja2==2.8
-  - Mako==1.0.3
-  - MarkupSafe==0.23
-  - python-bcrypt==0.3.1
-  - python-editor==0.4
-  - SQLAlchemy==1.0.9
-  - visitor==0.1.2
-  - Werkzeug==0.11.2
-  - WTForms==2.0.2
+
+   - alembic==0.8.3
+   - Babel==2.1.1
+   - coverage==4.0.2
+   - Flask==0.10.1
+   - Flask-Babel==0.9
+   - Flask-Bcrypt==0.6.2
+   - Flask-Bootstrap==3.3.5.7
+   - Flask-DebugToolbar==0.10.0
+   - Flask-Login==0.3.2
+   - Flask-Migrate==1.6.0
+   - Flask-Script==2.0.5
+   - Flask-SQLAlchemy==2.1
+   - Flask-Testing==0.4.2
+   - Flask-WTF==0.12
+   - Jinja2==2.8
+   - SQLAlchemy==1.0.9
+   - Werkzeug==0.11.2
+   - WTForms==2.0.2

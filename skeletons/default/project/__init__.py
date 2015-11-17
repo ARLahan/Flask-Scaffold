@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# Author: Al-Rama Lahan <lahangit@gmail.com>.
+# NOLICENCE
 """Project init."""
 
 import os
