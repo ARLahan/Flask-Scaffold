@@ -122,6 +122,7 @@ The optional -c parameters to pass can be one of the following:
 
 * It is generated a new project on the fly, with the following
  dependencies installed (if the -v argument is used):
+<<<<<<< HEAD
 
    - alembic==0.8.3
    - Babel==2.1.1
