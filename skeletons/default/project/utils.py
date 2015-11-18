@@ -6,6 +6,7 @@ from flask.ext.babel import format_datetime
 
 
 class Jinja2Filters(object):
+    """Custom template filters."""
 
     @app.template_filter()
     def datetime_filter(value, format='full'):
