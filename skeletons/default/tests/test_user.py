@@ -18,7 +18,7 @@ class TestUserBlueprint(BaseTestCase):
         # Ensure login behaves correctly with correct credentials.
         with self.client:
             response = self.client.post(
-                '/login',
+                '/user/login',
                 data=dict(first_name='Test', last_name='app',
                           email='test@admin.com',
                           password='admin_user'),
@@ -35,25 +35,25 @@ class TestUserBlueprint(BaseTestCase):
         # Ensure logout behaves correctly - regarding the session.
         with self.client:
             self.client.post(
-                '/login',
+                '/user/login',
                 data=dict(
                     first_name='Test',
                     last_name='app',
                     email='test@admin.com',
                     password='admin_user'),
                 follow_redirects=True)
-            response = self.client.get('/logout', follow_redirects=True)
+            response = self.client.get('/user/logout', follow_redirects=True)
             self.assertIn(b'You were logged out. Bye!', response.data)
             self.assertFalse(current_user.is_active)
 
     def test_logout_route_requires_login(self):
         # Ensure logout route requres logged in user.
-        response = self.client.get('/logout', follow_redirects=True)
+        response = self.client.get('/user/logout', follow_redirects=True)
         self.assertIn(b'Please log in to access this page', response.data)
 
     def test_member_route_requires_login(self):
         # Ensure member route requres logged in user.
-        response = self.client.get('/members', follow_redirects=True)
+        response = self.client.get('/user/dashboard', follow_redirects=True)
         self.assertIn(b'Please log in to access this page', response.data)
 
     def test_validate_success_login_form(self):
@@ -69,7 +69,7 @@ class TestUserBlueprint(BaseTestCase):
     def test_get_by_id(self):
         # Ensure id is correct for the current/logged in user.
         with self.client:
-            self.client.post('/login', data=dict(
+            self.client.post('/user/login', data=dict(
                              first_name='Test',
                              last_name='app',
                              email='test@admin.com',
@@ -80,7 +80,7 @@ class TestUserBlueprint(BaseTestCase):
     def test_registered_on_defaults_to_datetime(self):
         # Ensure that registered_on is a datetime.
         with self.client:
-            self.client.post('/login', data=dict(
+            self.client.post('/user/login', data=dict(
                 first_name='Test',
                 last_name='app',
                 email='test@admin.com',
@@ -100,7 +100,7 @@ class TestUserBlueprint(BaseTestCase):
     def test_validate_invalid_password(self):
         # Ensure user can't login when the pasword is incorrect.
         with self.client:
-            response = self.client.post('/login', data=dict(
+            response = self.client.post('/user/login', data=dict(
                                         first_name='Test',
                                         last_name='app',
                                         email='test@admin.com',
@@ -110,13 +110,13 @@ class TestUserBlueprint(BaseTestCase):
 
     def test_register_route(self):
         # Ensure about route behaves correctly.
-        response = self.client.get('/register', follow_redirects=True)
+        response = self.client.get('/user/register', follow_redirects=True)
         self.assertIn(b'<h1>Please Register</h1>\n', response.data)
 
     def test_user_registration(self):
         # Ensure registration behaves correctlys.
         with self.client:
-            response = self.client.post('/register', data=dict(
+            response = self.client.post('/user/register', data=dict(
                                         first_name='Test',
                                         last_name='app',
                                         email='test@tester.com',

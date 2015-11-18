@@ -16,7 +16,7 @@ class TestDevelopmentConfig(TestCase):
         return app
 
     def test_app_is_development(self):
-        self.assertFalse(current_app.config['TESTING'] is True)
+        self.assertFalse(current_app.config['TESTING'] is False)
         self.assertTrue(app.config['DEBUG'] is True)
         self.assertTrue(app.config['WTF_CSRF_ENABLED'] is False)
         self.assertTrue(app.config['DEBUG_TB_ENABLED'] is True)
@@ -43,7 +43,7 @@ class TestProductionConfig(TestCase):
         return app
 
     def test_app_is_production(self):
-        self.assertFalse(current_app.config['TESTING'])
+        self.assertFalse(current_app.config['TESTING'] is False)
         self.assertTrue(app.config['DEBUG'] is False)
         self.assertTrue(app.config['DEBUG_TB_ENABLED'] is False)
         self.assertTrue(app.config['WTF_CSRF_ENABLED'] is True)
