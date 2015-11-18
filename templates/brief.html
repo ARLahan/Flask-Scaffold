@@ -1,9 +1,9 @@
 
 Welcome! The following settings will be used to create your {{ appname | upper }} application:
 
-Python Version:     {{ pyversion }}
+Python version:     {% if pyversion %}Python {{ pyversion }}{% else %}None{% endif %}
 Project name:       {{ appname }}
-Project path:       {{ path }}
+Project path:       {{ path }}/{{ appname }}
 Virtualenv:         {% if virtualenv %}Enabled{% else %}Disabled{% endif %}
 Skeleton:           {{ skeleton }}
 Git:                {% if git %}Yes{% else %}{{ disabled }}No{% endif %}
