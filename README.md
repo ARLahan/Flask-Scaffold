@@ -1,5 +1,4 @@
 # Another Flask Scaffold
-
 ## How to install and use Flask-Scaffold:
 ========================================
   - Clone this repository:
@@ -43,44 +42,44 @@
 ===========
 ### Installing without parameters
 
-    ```sh
+  ```sh
       $ python scaffold.py project_name
-    ```
+  ```
 
   Creates a new project <project_name> at user's home directory without
   any dependencies, virtualenv, bower or git
 
 ### Installing with virtualenv
 
-    ```sh
+  ```sh
     $ python scaffold.py project_name -v 2.7
-    ```
+  ```
 
   Creates a new project with python 2.7 and virtualenv with all the project's
   dependencies installed through requirements.txt
 
 ### Installing with git
 
-    ```sh
+  ```sh
     $ python scaffold.py project_name -v 3.5 -g
-    ```
+  ```
 
   Creates a new project with python 3.5 and virtualenv and initiates a git
   repository at the projectŝ root directory
 
 ### Installing with bower
 
-    ```sh
+  ```sh
     $ python scaffold.py project_name -b "jquery angular"
-    ```
+  ```
 
   Creates a new project and installs JQuery and Angularjs in the static folder
 
 ### Installing with all parameters
 
-    ```sh
+  ```sh
     $ python scaffold.py project_name -s skeleton_name -g -v 2.7 -b "jquery angular" [-p full-path/of/the/new/project]
-    ```
+  ```
 
 
 
