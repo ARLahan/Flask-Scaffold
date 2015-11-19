@@ -8,7 +8,7 @@ import os
 
 from flask import Flask, render_template
 from flask.ext.login import LoginManager
-from flask.ext.babel import Babel
+from flask.ext.babelex import Babel
 from flask.ext.bcrypt import Bcrypt
 from flask_bootstrap import Bootstrap
 from flask.ext.sqlalchemy import SQLAlchemy

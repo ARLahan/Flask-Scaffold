@@ -86,7 +86,7 @@ but has some improvements, such as:
      - Babel==2.1.1
      - coverage==4.0.2
      - Flask==0.10.1
-     - Flask-Babel==0.9
+     - Flask-BabelEx==0.9.2
      - Flask-Bcrypt==0.6.2
      - Flask-Bootstrap==3.3.5.7
      - Flask-DebugToolbar==0.10.0

@@ -2,7 +2,7 @@
 """Project utilities."""
 
 from . import app
-from flask.ext.babel import format_datetime
+from flask.ext.babelex import format_datetime
 
 
 class Jinja2Filters(object):
