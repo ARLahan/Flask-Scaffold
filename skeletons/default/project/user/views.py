@@ -9,15 +9,15 @@ from .models import User
 from .forms import LoginForm, RegisterForm
 
 # User blueprint
-user_bp = Blueprint('user', __name__,
-                    url_prefix='/user',
-                    static_folder='static',
-                    static_url_path='/user/static',
-                    template_folder='templates')
+user_blueprint = Blueprint('user', __name__,
+                           url_prefix='/user',
+                           static_folder='static',
+                           static_url_path='/user/static',
+                           template_folder='templates')
 
 
 # User blueprint routes
-@user_bp.route('/register', methods=['GET', 'POST'])
+@user_blueprint.route('/register', methods=['GET', 'POST'])
 def register():
     """User register view."""
     form = RegisterForm(request.form)
@@ -32,12 +32,12 @@ def register():
         login_user(user)
 
         flash('Thank you for registering.', 'success')
-        return redirect(url_for('.members'))
+        return redirect(url_for('.dashboard'))
 
-    return render_template('register.html', form=form)
+    return render_template('user/register.html', form=form)
 
 
-@user_bp.route('/login', methods=['GET', 'POST'])
+@user_blueprint.route('/login', methods=['GET', 'POST'])
 def login():
     """User login view."""
     form = LoginForm(request.form)
@@ -47,14 +47,14 @@ def login():
                 user.password, request.form['password']):
             login_user(user)
             flash('You are logged in. Welcome!', 'success')
-            return redirect(url_for('.members'))
+            return redirect(url_for('.dashboard'))
         else:
             flash('Invalid email and/or password.', 'danger')
-            return render_template('login.html', form=form)
-    return render_template('login.html', title='Please Login', form=form)
+            return render_template('user/login.html', form=form)
+    return render_template('user/login.html', title='Please Login', form=form)
 
 
-@user_bp.route('/logout')
+@user_blueprint.route('/logout')
 @login_required
 def logout():
     """User logout view."""
@@ -63,9 +63,9 @@ def logout():
     return redirect(url_for('main.home'))
 
 
-@user_bp.route('/')
-@user_bp.route('/dashboard')
+@user_blueprint.route('/')
+@user_blueprint.route('/dashboard')
 @login_required
 def members():
     """User area view."""
-    return render_template('members.html')
+    return render_template('user/dashboard.html')

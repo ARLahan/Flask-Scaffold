@@ -4,21 +4,21 @@
 from flask import render_template, Blueprint
 
 # Create blueprint
-main_bp = Blueprint('main', __name__,
-                    url_prefix='',
-                    static_folder='static',
-                    static_url_path='/main/static',
-                    template_folder='templates')
+main_blueprint = Blueprint('main', __name__,
+                    	   url_prefix='',
+                    	   static_folder='static',
+                    	   static_url_path='/main/static',
+                    	   template_folder='templates')
 
 
 # main blueprint routes
-@main_bp.route('/')
+@main_blueprint.route('/')
 def home():
     """Home view."""
     return render_template('home.html')
 
 
-@main_bp.route('/about')
+@main_blueprint.route('/about')
 def about():
     """About view."""
     return render_template('about.html')

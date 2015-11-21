@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Author: Al-Rama Lahan <lahangit@gmail.com>.
-# NOLICENCE
+# Author: Al-Ramaa Lahan <lahangit@gmail.com>.
+# NO LICENCE
 """Project init."""
 
 import os
@@ -15,13 +15,9 @@ from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-# Config
-# Choose which configuration to use, depending on the value
-# assign to the environment variable `APP_CONFIG`:
-# --> `DevelopmentConfig`, `TestingConfig` or `ProductionConfig`
+# Config for development
 app.config.from_object(os.environ['APP_CONFIG'])
 app.__str__ = app.config['APP_NAME']  # Define the app name for humans
-
 
 # Extensions
 babel = Babel(app)
@@ -31,19 +27,18 @@ db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 
-# Load jinja2 custom filters
-from .utils import Jinja2Filters
+
+from .user.models import User
 
 # Blueprints: import and register
-# main blueprint
-from .main.views import main_bp
-app.register_blueprint(main_bp)
-# user blueprint
-from .user.views import user_bp
-app.register_blueprint(user_bp)
+from .main.views import main_blueprint
+from .user.views import user_blueprint
+
+app.register_blueprint(main_blueprint)
+app.register_blueprint(user_blueprint)
+
 
 # Login manager
-from .user.models import User
 login_manager.login_view = "user.login"
 login_manager.login_message_category = "danger"
 
@@ -72,6 +67,8 @@ def server_error_page(error):
     """Error 500 handler."""
     return render_template('errors/500.html'), 500
 
+
+from . import utils
 
 # if in development and debug is true load debug toolbar
 if app.config['DEBUG']:
