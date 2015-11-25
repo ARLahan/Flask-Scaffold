@@ -83,4 +83,4 @@
 
 
 
-NO LICENCE.
+NO LICENSE.
